@@ -77,5 +77,54 @@
 <body>
     <div id="root"></div>
     <script src="app.js"></script>
+    <!-- Bunny 足迹访问计数器 — 隐蔽可爱风格 -->
+<div id="bunny-counter" style="position:fixed;bottom:16px;right:16px;z-index:50;font-family:'Inter',sans-serif;font-size:11px;color:#8B7355;opacity:0.35;transition:opacity 0.3s;cursor:default;user-select:none;" onmouseenter="this.style.opacity='0.85'" onmouseleave="this.style.opacity='0.35'">
+    <span style="display:inline-flex;align-items:center;gap:5px;">
+        <!-- bunny footprint SVG -->
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFB5C5" style="opacity:0.7;">
+            <ellipse cx="8" cy="6" rx="3" ry="4"/>
+            <ellipse cx="16" cy="6" rx="3" ry="4"/>
+            <ellipse cx="6" cy="12" rx="2.5" ry="3.5"/>
+            <ellipse cx="18" cy="12" rx="2.5" ry="3.5"/>
+            <ellipse cx="12" cy="18" rx="5" ry="6"/>
+        </svg>
+        <span id="bunny-hops">...</span>
+        <span style="font-size:9px;opacity:0.5;">hops</span>
+    </span>
+</div>
+
+<script>
+    (function() {
+        const KEY = 'ixia321-bunnylift-views';
+        const BASE = 'https://countapi.mileshilliard.com/api/v1';
+        
+        // 先计数 +1
+        fetch(`${BASE}/hit/${KEY}`)
+            .then(r => r.json())
+            .then(data => {
+                // 显示当前数字
+                const el = document.getElementById('bunny-hops');
+                if (el && data.value) {
+                    el.textContent = Number(data.value).toLocaleString();
+                }
+            })
+            .catch(() => {
+                // 如果 hit 失败，尝试只获取不增加
+                fetch(`${BASE}/get/${KEY}`)
+                    .then(r => r.json())
+                    .then(data => {
+                        const el = document.getElementById('bunny-hops');
+                        if (el && data.value) {
+                            el.textContent = Number(data.value).toLocaleString();
+                        }
+                    })
+                    .catch(() => {
+                        const el = document.getElementById('bunny-hops');
+                        if (el) el.textContent = '';
+                    });
+            });
+    })();
+</script>
+
 </body>
 </html>

@@ -41,7 +41,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         html { scroll-behavior: smooth; }
         body {
-            background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%238B5A2B' fill-opacity='0.08'%3E%3Ccircle cx='20' cy='20' r='5'/%3E%3Ccircle cx='60' cy='60' r='5'/%3E%3C/g%3E%3C/svg%3E"), linear-gradient(135deg, #FFF0F5 0%, #FFE4E9 100%);
+            background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%238B5A2B' fill-opacity='0.08'%3E%3Ccircle cx='40' cy='40' r='5'/%3E%3C/g%3E%3C/svg%3E"), linear-gradient(135deg, #FFF0F5 0%, #FFE4E9 100%);
             background-size: 80px 80px, 100% 100%;
             background-attachment: fixed;
             font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
@@ -77,57 +77,5 @@
 <body>
     <div id="root"></div>
     <script src="app.js"></script>
-    
-
-
-        <!-- Star 按钮 — 链接到 GitHub repo -->
-    <a href="https://github.com/ixia321/BunnyLift" target="_blank" rel="noopener noreferrer" style="position:fixed;bottom:16px;right:16px;z-index:50;font-family:'Inter',sans-serif;font-size:12px;color:#4A3728;text-decoration:none;opacity:0.7;transition:opacity 0.3s;" onmouseenter="this.style.opacity='1'" onmouseleave="this.style.opacity='0.7'">
-        <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,240,245,0.9);padding:6px 14px;border-radius:24px;backdrop-filter:blur(4px);border:1px solid rgba(255,181,197,0.3);box-shadow:0 2px 8px rgba(139,90,43,0.06);">
-            <span style="font-size:14px;">⭐</span>
-            <span style="font-weight:500;">Star on GitHub</span>
-        </span>
-    </a>
-
-    <!-- Bunny 计数器 — 右上角 -->
-    <div id="bunny-counter" style="position:fixed;top:16px;right:40px;z-index:50;font-family:'Inter',sans-serif;font-size:12px;color:#8B7355;opacity:0.6;transition:opacity 0.3s;cursor:default;user-select:none;" onmouseenter="this.style.opacity='1'" onmouseleave="this.style.opacity='0.6'">
-        <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(255,240,245,0.85);padding:4px 10px;border-radius:20px;backdrop-filter:blur(4px);">
-            <span style="font-size:13px;">🐰</span>
-            <span id="bunny-hops" style="font-weight:500;">...</span>
-            <span style="font-size:10px;opacity:0.6;">hops</span>
-        </span>
-    </div>
-
-    <script>
-        (function() {
-            const KEY = 'ixia321-bunnylift-views';
-            const BASE = 'https://countapi.mileshilliard.com/api/v1';
-            
-            fetch(`${BASE}/hit/${KEY}`)
-                .then(r => r.json())
-                .then(data => {
-                    const el = document.getElementById('bunny-hops');
-                    if (el && data.value) {
-                        el.textContent = Number(data.value).toLocaleString();
-                    }
-                })
-                .catch(() => {
-                    fetch(`${BASE}/get/${KEY}`)
-                        .then(r => r.json())
-                        .then(data => {
-                            const el = document.getElementById('bunny-hops');
-                            if (el && data.value) {
-                                el.textContent = Number(data.value).toLocaleString();
-                            }
-                        })
-                        .catch(() => {
-                            const el = document.getElementById('bunny-hops');
-                            if (el) el.textContent = '';
-                        });
-                });
-        })();
-    </script>
-    
 </body>
 </html>
-
-

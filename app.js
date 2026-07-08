@@ -13,6 +13,66 @@ function useScrollTo() {
   return [ref, scroll];
 }
 
+// ═══════════════════════════════════════════
+//  I18N - TRANSLATIONS
+// ═══════════════════════════════════════════
+const TRANSLATIONS = {
+en: {
+brand: "BunnyLift", brandTag: "For Women",
+navHome: "Home", navCalculator: "Calculator", navTraining: "Training", navNutrition: "Nutrition", navScience: "Science",
+footerSlogan: "Science-based fitness tools designed for women.",
+footerDisclaimer: "This website provides general information and is not a substitute for professional medical or nutritional advice.",
+footerCopyright: "\u00A9 2026 BunnyLift. Built with care.",
+homeTitle: "Science-Based Fitness for Women", homeSubtitle1: "Train Smart.", homeSubtitle2: "Eat Right. Know Why.",
+homeDesc: "BunnyLift provides science-backed tools for RMR/TDEE calculation, training program design, nutrition planning, and evidence-based female fitness science. No bro-science, just peer-reviewed research.",
+homeStatsPrograms: "Training Programs", homeStatsFoods: "Foods in Database", homeStatsEvidence: "Evidence-Based",
+homeSectionTitle: "Everything You Need", homeSectionDesc: "From calorie calculations to training programs \u2014 all grounded in peer-reviewed research and tailored for women.",
+homeScienceTitle: "Built on Science, Not Trends",
+homeScienceDesc: "Every recommendation is backed by peer-reviewed research from sources like the ISSN, ACSM, and WHO. We incorporate Stacy Sims' principles on female physiology, account for hormonal cycles, body composition differences, and unique micronutrient needs.",
+homeScienceCTA: "Explore the Science", homeStartCalc: "Start Calculator", homeViewTraining: "View Training Plans",
+calcTitle: "Fitness Calculator", calcSubtitle: "RMR, TDEE, and macro targets based on the Mifflin-St Jeor equation for women. RMR (Resting Metabolic Rate) is often called BMR in fitness apps.",
+calcInfoTitle: "Your Info", calcAge: "Age", calcWeight: "Weight", calcHeight: "Height", calcYears: "years", calcKg: "kg", calcCm: "cm",
+calcActivityTitle: "Activity Level", calcSedentary: "Sedentary", calcSedentaryDesc: "Little or no exercise",
+calcLightlyActive: "Lightly Active", calcLightlyActiveDesc: "1-3 days/week", calcModeratelyActive: "Moderately Active", calcModeratelyActiveDesc: "3-5 days/week",
+calcVeryActive: "Very Active", calcVeryActiveDesc: "6-7 days/week", calcExtraActive: "Extra Active", calcExtraActiveDesc: "Physical job + training",
+calcMultiplier: "Multiplier", calcBMR: "RMR", calcBMRUnit: "calories / day", calcBMRNote: "Resting metabolic rate",
+calcTDEE: "TDEE", calcTDEEUnit: "calories / day", calcTDEENote: "Actual daily burn",
+calcGoalTitle: "Choose Your Goal", calcCut: "Cut", calcCutSubtitle: "Fat Loss", calcCutDesc: "TDEE - 18%",
+calcMaingain: "Maingaining", calcMaingainSubtitle: "Body Recomp", calcMaingainDesc: "TDEE + 3%",
+calcBulk: "Bulk", calcBulkSubtitle: "Muscle Gain", calcBulkDesc: "TDEE + 12%",
+calcTargetTitle: "Your Daily Target", calcWeeklyChange: "weekly change",
+calcProtein: "Protein", calcCarbs: "Carbohydrates", calcFats: "Fats", calcKcal: "kcal",
+calcProteinWhy: "Why this protein amount?", calcProteinWhyDesc: "ISSN (2017) and Morton et al. (2018) show women benefit from",
+trainingTitle: "Training Splits", trainingSubtitle: "Choose a program that matches your experience level and schedule. Each split is periodized for progressive overload.",
+trainingClickHint: "Click a program above to view its schedule", trainingIdealFor: "Ideal for", trainingDaysPerWeek: "Days/Week",
+trainingRest: "Rest", trainingActiveRecovery: "Active Recovery",
+nutritionTitle: "Nutrition Guide", nutritionSubtitle: "Macros, micronutrients, supplements, hydration, and a food database \u2014 all tailored for female physiology.",
+nutritionTabMacros: "Macros", nutritionTabMicros: "Micronutrients", nutritionTabSupplements: "Supplements", nutritionTabHydration: "Hydration", nutritionTabFoods: "Food Database",
+nutritionBestSources: "Best Sources", nutritionKeyTips: "Key Tips", nutritionProteinByGoal: "Protein Intake by Goal", nutritionStacySimsLabel: "Stacy Sims",
+hydrationTitle: "Hydration Calculator", hydrationSubtitle: "Based on Stacy Sims' research on female hydration needs.",
+hydrationBodyWeight: "Body Weight", hydrationExercise: "Daily Exercise", hydrationCaffeine: "Caffeine", hydrationCups: "cups/day",
+hydrationCreatine: "Taking Creatine?", hydrationTarget: "Daily Water Target", hydrationMl: "ml / day",
+hydrationBase: "Base", hydrationExerciseLabel: "Exercise", hydrationCaffeineLabel: "Caffeine", hydrationCreatineLabel: "Creatine supplement",
+hydrationStacyTip: "Stacy Sims Tip", hydrationTips: "Hydration Tips",
+foodTitle: "Common Foods", foodAdd: "Add", foodRemove: "Remove", foodAdded: "Added", foodTotal: "Total", foodPer: "Per", foodClear: "Clear All",
+scienceTitle: "The Science", scienceSubtitle: "Evidence-based insights into female physiology, metabolism, gut health, and training adaptations.",
+scienceTabMenstrual: "Menstrual Cycle", scienceTabMetabolism: "Metabolism", scienceTabBodyFat: "Body Fat", scienceTabGut: "Gut Health",
+scienceWomenAreNotSmallMen: "Women Are Not Small Men",
+scienceWomenAreNotSmallMenDesc: "Most sports science research has been conducted on men, then simply scaled down for women. This does not work. Women have different hormonal profiles, body compositions, and metabolic responses. Training and nutrition must be adapted to these differences for optimal results.",
+scienceRecommendedReading: "Recommended Reading", scienceLiftHeavy: "Lift Heavy",
+scienceLiftHeavyDesc: "Women have a higher proportion of type I (endurance) fibers and lower type II (power) fibers. Prioritize heavy resistance training (3-6 reps at 80-90% 1RM) to effectively recruit type II fibers for strength and power development.",
+scienceRecovery: "Recovery is Non-Negotiable",
+scienceRecoveryDesc: "Due to estrogen's role in muscle damage and inflammation, women experience less muscle damage but also less muscle protein breakdown. Women can train more frequently but need 48 hours of recovery for the same muscle group.",
+scienceBirthControl: "Birth Control Changes Everything",
+scienceBirthControlDesc: "Hormonal contraceptives suppress the natural estrogen and progesterone fluctuations that cycle-based training plans assume. For the ~400 million women worldwide using hormonal contraception, phase-based training approaches have no physiological basis. Current evidence (D'Souza et al., 2023) suggests women on the pill should follow consistent, symptom-guided training rather than cycle-based periodization.",
+scienceNote: "Note", scienceReferences: "References",
+gutTitle: "Gut Health & Digestion", gutBristolScale: "Bristol Stool Scale", gutBristolDesc: "A medical tool used to classify stool into 7 types. Types 3-4 are considered ideal.",
+gutDailyFiber: "Daily Fiber Target", gutFiberRec: "25-30g/day for women", gutFiberGuide: "Fiber Guide", gutFiberIncrease: "How to Increase Fiber",
+gutCommonIssues: "Common Issues & Fixes", gutIssue: "Issue", gutCauses: "Causes", gutFixes: "Fixes",
+explore: "Explore", langEn: "EN"
+}};
+function T(lang, key) { return TRANSLATIONS[lang][key] || TRANSLATIONS.en[key] || key; }
+
 // ─── SVG Icons ───
 function Icon({ name, size, className, strokeWidth }) {
   const s = size || 20, sw = strokeWidth || 1.5, c = className || '';
@@ -219,7 +279,7 @@ const STACY_SIMS_DATA = {
 //  BOWEL HEALTH DATA
 // ═══════════════════════════════════════════
 const BOWEL_HEALTH_DATA = {
-  title: "Gut Health & Digestion",
+  title: 'Gut Health & Digestion',
   bristolScale: [
     { type: 1, desc: "Separate hard lumps", status: "Constipation" },
     { type: 2, desc: "Lumpy sausage shape", status: "Mild constipation" },
@@ -266,7 +326,7 @@ const NUTRITION_GUIDE = {
     description: 'The building block of muscle. Adequate protein intake is essential for muscle protein synthesis, recovery, and maintaining lean mass during fat loss.',
     sources: ['Chicken breast', 'Turkey', 'Lean beef', 'Fish (salmon, tuna, cod)', 'Eggs & egg whites', 'Greek yogurt', 'Cottage cheese', 'Tofu & tempeh', 'Lentils & beans', 'Protein powder (whey, casein, plant-based)'],
     tips: ['Aim for 1.6-2.2g per kg of bodyweight daily', 'Distribute across 3-5 meals (20-40g per meal)', 'Post-workout: 25-30g within 30 min (Sims)', 'Leucine-rich sources trigger MPS most effectively'],
-    stacySims: 'Women have a shorter anabolic window post-exercise compared to men. Aim for 25-30g protein within 30 minutes post-workout, particularly leucine-rich sources. This becomes even more important during the luteal phase when protein oxidation increases.'
+    stacySims: 'Women may benefit from post-exercise protein intake of 20-30g within ~2 hours post-workout, particularly leucine-rich sources (Morton et al. 2018; Phillips & Van Loon 2021). Total daily protein intake is the primary driver of muscle protein synthesis.'
   },
   carbs: {
     title: 'Carbohydrates',
@@ -275,7 +335,7 @@ const NUTRITION_GUIDE = {
     description: "Your body's primary fuel source for training. Carbs replenish muscle glycogen, support thyroid function, and help regulate cortisol levels in women. Stacy Sims emphasizes that women should NOT follow low-carb diets.",
     sources: ['Oats & oatmeal', 'Rice (white, brown, jasmine)', 'Potatoes & sweet potatoes', 'Quinoa', 'Whole grain bread & pasta', 'Fruits (bananas, berries, apples)', 'Legumes', 'Honey & maple syrup (moderation)'],
     tips: ['Timing: prioritize carbs around your workout window', 'Fiber: aim for 25-30g daily for digestive health', 'Complex carbs provide sustained energy', 'Women need adequate carbs for hormonal health'],
-    stacySims: "Women oxidize more fat and less carbohydrate at the same relative exercise intensity compared to men. However, this doesn't mean women should follow low-carb diets. Adequate carbohydrate intake is essential for thyroid function, menstrual health, and training performance — especially in the luteal phase."
+    stacySims: "Women oxidize proportionally more fat and less carbohydrate at the same relative exercise intensity compared to men (Tarnopolsky et al. 2001). However, this does not mean women should follow low-carbohydrate diets. Adequate carbohydrate intake is essential for thyroid function, menstrual health, and training performance in women (Stellingwerff et al. 2021)."
   },
   fats: {
     title: 'Healthy Fats',
@@ -318,7 +378,7 @@ const NUTRITION_GUIDE = {
     color: '#98D8C8',
     description: 'Water is involved in every metabolic process, nutrient transport, and temperature regulation. Women have different hydration needs than men.',
     recommendation: 'Base: 35ml per kg bodyweight daily',
-    stacySimsNote: 'Stacy Sims recommends adding sodium to your water bottle (pinch of salt) especially during the luteal phase when fluid retention is higher. Women have lower sweat rates and higher core temperature thresholds than men.',
+    stacySimsNote: 'Women have lower sweat rates and higher core temperature thresholds for sweating compared to men (Gagnon & Kenny 2012). Adding sodium to fluids (especially during hot weather or high-volume training) can improve hydration status. Individual fluid needs vary significantly. Monitor urine color (pale yellow = well hydrated) as a practical guide.',
     tips: ['Base: 35ml per kg bodyweight', 'Add 500ml per hour of exercise', 'Add 300-500ml if taking creatine', 'Caffeine is a diuretic — add 150ml per cup of coffee', 'Pale yellow urine = well hydrated', 'Start your day with 300-500ml water', 'Electrolytes needed for sessions >60 min']
   }
 };
@@ -328,15 +388,15 @@ const NUTRITION_GUIDE = {
 // ═══════════════════════════════════════════
 const SCIENCE_DATA = {
   menstrual: {
-    title: 'Menstrual Cycle & Training',
+    title: 'Menstrual Cycle: What the Evidence Says',
     icon: 'Moon',
     phases: [
-      { name: 'Follicular Phase (Days 1-14)', desc: 'Estrogen rises. Higher pain tolerance, better mood, increased strength. This is the optimal time for heavy lifting and high-intensity training. Schedule your hardest workouts here.' },
-      { name: 'Ovulation (~Day 14)', desc: 'Peak strength and coordination. Testosterone peaks slightly. Great for PR attempts and maximal efforts. Take advantage of this window.' },
-      { name: 'Luteal Phase (Days 15-28)', desc: 'Progesterone rises. Core temperature increases, time to fatigue decreases. Focus on moderate volume, recovery work, and deload if needed. Some women benefit from reducing intensity by 10-15%.' },
-      { name: 'Menstruation (Days 1-5)', desc: 'If symptoms are mild, training can continue normally. Listen to your body — reduce intensity if needed. Iron levels may be lower; prioritize iron-rich foods.' }
+      { name: 'The Research Landscape', desc: 'A 2023 umbrella review from McMaster University (D\'Souza et al., J Appl Physiol) found no consistent evidence that menstrual cycle phase affects strength performance or training adaptations. Individual variation is far greater than any phase-based effect. Most previous studies had methodological limitations (self-reported cycles, no hormonal confirmation, small samples).' },
+      { name: 'What This Means for Training', desc: 'Stuart Phillips, senior author of the umbrella review, stated: "We saw no evidence that such practice is science-based." (Colenso-Semple et al., 2023, Frontiers in Sports). Current evidence does NOT support rigid phase-based training plans. The best approach is consistent training with adjustments based on how YOU feel, not your cycle day.' },
+      { name: 'Individual Differences Matter', desc: 'While group-level data shows no clear phase effects, some women DO experience symptoms that affect training. If you feel stronger during certain phases, schedule harder sessions then. If you experience fatigue or discomfort, reduce intensity. Self-tracking remains valuable — but use it to find YOUR individual patterns, not to follow generic phase-based templates.' },
+      { name: 'Practical Guidelines', desc: '1) Train consistently year-round (Kissow et al., 2022; Wikstrom-Frisen et al., 2017). 2) Adjust intensity based on symptoms and recovery, not calendar dates. 3) If you experience severe symptoms, consult a physician. 4) Women on hormonal contraceptives follow different hormonal patterns — cycle-based approaches do not apply to ~400 million women worldwide who use them.' }
     ],
-    note: 'Not all women experience significant cycle-related performance changes. Track your own training metrics to understand your individual patterns. Women on hormonal birth control will have different patterns.'
+    note: 'The consensus has shifted significantly since 2020. Earlier narrative reviews (e.g., McNulty 2020) suggested phase-based periodization, but more rigorous umbrella reviews and meta-analyses in 2023 found the evidence insufficient. This is a fast-evolving field — we update our content as new research emerges.'
   },
   womenVsMen: {
     title: 'Women vs Men: Muscle Building',
@@ -351,41 +411,44 @@ const SCIENCE_DATA = {
       'Estrogen provides a protective effect against muscle breakdown'
     ]
   },
-  bmrFacts: {
+  rmrFacts: {
     title: 'Female Metabolism: The Truth',
     icon: 'Flame',
     facts: [
-      "Women's BMR is ~5-10% lower than men's of the same weight (due to lower lean mass)",
-      'Menstrual cycle causes BMR to fluctuate by 2.5-11% throughout the month',
-      'BMR decreases by ~2-3% per decade after age 20, primarily due to muscle loss',
-      'Building 1kg of muscle increases BMR by ~13 kcal/day — small but cumulative',
+      "Women's RMR is ~5-10% lower than men's of the same weight (due to lower lean mass)",
+      'Menstrual cycle causes RMR to fluctuate by 2.5-11% throughout the month (Benton et al. 2020)',
+      'RMR decreases by ~2-3% per decade after age 20, primarily due to muscle loss (St-Onge & Gallagher 2008)',
+      'Building 1kg of muscle increases RMR by ~13 kcal/day — small but cumulative (McArdle et al., 2015)',
       'Crash dieting (>500 kcal deficit) suppresses metabolic rate and raises cortisol',
       'Women generally burn a higher percentage of fat at rest compared to men'
     ]
   },
   bodyFat: {
-    title: 'Healthy Body Fat Ranges',
+    title: 'Healthy Body Fat Ranges (ACE Standards)',
     icon: 'Target',
     ranges: [
-      { category: 'Essential Fat', range: '10-13%', note: 'Minimum for survival; not sustainable long-term' },
-      { category: 'Athletic', range: '14-20%', note: 'Sustainable for competitive athletes' },
-      { category: 'Fit', range: '21-24%', note: 'Healthy and sustainable for active women' },
-      { category: 'Average', range: '25-31%', note: 'Normal range for general population' },
-      { category: 'Above Average', range: '32%+', note: 'Associated with increased health risks' },
+      { category: 'Essential Fat', range: '10-13%', note: 'Minimum for physiological function (ACE, 2024). Not sustainable for athletic performance.' },
+      { category: 'Athletic', range: '14-20%', note: 'Typical for competitive athletes. Optimal for power-to-weight sports (ACE, 2024).' },
+      { category: 'Fit', range: '21-24%', note: 'Healthy target for active women. Balances performance and hormonal health (ACE, 2024).' },
+      { category: 'Average', range: '25-31%', note: 'Normal healthy range for general population (ACE, 2024). Increases ~1% per decade after 30.' },
+      { category: 'Above Average', range: '32%+', note: 'Associated with elevated cardiometabolic risk (ACE, 2024; NHANES 2022).' },
     ],
-    note: 'Body fat percentage is more informative than BMI. Women naturally carry more essential fat than men (hormonal health requires it).'
+    note: 'Standards from the American Council on Exercise (ACE, 2024). Body fat is more informative than BMI for athletic women. Essential fat requirements are higher in women than men due to reproductive and hormonal functions. Ranges shift ~1% higher per decade of age after 30.'
   },
   references: [
-    'Mifflin MD, et al. (1990). A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr.',
-    'Jager R, et al. (2017). International Society of Sports Nutrition Position Stand: protein and exercise. JISSN.',
-    'Schoenfeld BJ. (2016). The mechanisms of muscle hypertrophy and their application to resistance training. JSCR.',
-    "ACSM's Guidelines for Exercise Testing and Prescription, 11th Edition (2021).",
-    'McNulty KL, et al. (2020). The Effects of Menstrual Cycle Phase on Exercise Performance in Eumenorrheic Women. Sports Med.',
-    'Ellery SJ, et al. (2016). Creatine for women: a review of the relationship between creatine and the reproductive cycle and female-specific benefits. Amino Acids.',
+    'Mifflin MD, et al. (1990). A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr, 51(2): 241-247.',
+    'Jager R, et al. (2017). International Society of Sports Nutrition Position Stand: protein and exercise. JISSN, 14(1): 20.',
+    'Kerksick CM, et al. (2022). ISSN exercise & sports nutrition review update. JISSN, 19(1): 1-62.',
+    'Kreider RB, et al. (2022). ISSN Position Stand: safety and efficacy of creatine supplementation. JISSN, 19(1): 1-25.',
+    'Morton RW, et al. (2018). Protein supplementation augments resistance training-induced gains in muscle mass and strength in healthy adults. Br J Sports Med, 52(6): 376-384.',
+    'Schoenfeld BJ, et al. (2023). Resistance training variables and muscle hypertrophy: systematic review and network meta-analysis. Br J Sports Med, 57(18): 1211-1220.',
+    "Colenso-Semple LM, et al. (2023). Current evidence shows no influence of women's menstrual cycle phase on acute strength performance or adaptations to resistance exercise training. Front Sports Act Living, 5: 1054542.",
+    "D'Souza AC, et al. (2023). Menstrual cycle hormones and oral contraceptives: multimethod systems physiology-based review. J Appl Physiol, 135(2): 319-336.",
+    'Schoenfeld BJ, Grgic J. (2022). Evidence-based guidelines for resistance training volume. JSCR, 36(4): 1036-1041.',
+    "Helms ER, et al. (2014). Evidence-based recommendations for natural bodybuilding contest preparation. JISSN, 11(1): 20.",
     'Sims ST. (2016). ROAR: How to Match Your Food and Fitness to Your Unique Female Physiology.',
     'Sims ST, Yeager K. (2022). Next Level: Your Guide to Kicking Ass, Feeling Great, and Crushing Goals Through Menopause and Beyond.',
-    'WHO/FAO. (2004). Vitamin and mineral requirements in human nutrition, 2nd ed.',
-    'Helms ER, et al. (2014). Evidence-based recommendations for natural bodybuilding contest preparation. JISSN.',
+    "ACSM's Guidelines for Exercise Testing and Prescription, 11th Edition (2021).",
   ]
 };
 
@@ -393,9 +456,9 @@ const SCIENCE_DATA = {
 // ═══════════════════════════════════════════
 //  NAVBAR
 // ═══════════════════════════════════════════
-function Navbar({ currentPage, setPage }) {
+function Navbar({ currentPage, setPage, lang }) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const links = [{ key: 'home', label: 'Home' }, { key: 'calculator', label: 'Calculator' }, { key: 'training', label: 'Training' }, { key: 'nutrition', label: 'Nutrition' }, { key: 'science', label: 'Science' }];
+  const links = [{ key: 'home', label: T(lang, 'navHome') }, { key: 'calculator', label: T(lang, 'navCalculator') }, { key: 'training', label: T(lang, 'navTraining') }, { key: 'nutrition', label: T(lang, 'navNutrition') }, { key: 'science', label: T(lang, 'navScience') }];
   return h('nav', { className: 'sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-light-pink/40' },
     h('div', { className: 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-8' },
       h('div', { className: 'flex items-center justify-between h-16' },
@@ -414,13 +477,13 @@ function Navbar({ currentPage, setPage }) {
 // ═══════════════════════════════════════════
 //  FOOTER
 // ═══════════════════════════════════════════
-function Footer() {
+function Footer({ lang }) {
   return h('footer', { className: 'bg-brown text-white/70 py-10 mt-16' },
     h('div', { className: 'max-w-6xl mx-auto px-4 sm:px-6 text-center' },
       h('p', { className: 'font-display text-xl text-white mb-2' }, 'BunnyLift'),
-      h('p', { className: 'text-sm mb-4' }, 'Science-based fitness tools designed for women.'),
-      h('p', { className: 'text-xs text-white/40' }, 'This website provides general information and is not a substitute for professional medical or nutritional advice.'),
-      h('p', { className: 'text-xs text-white/30 mt-2' }, '\u00A9 2026 BunnyLift. Built with care.')
+      h('p', { className: 'text-sm mb-4' }, T(lang, 'footerSlogan')),
+      h('p', { className: 'text-xs text-white/40' }, T(lang, 'footerDisclaimer')),
+      h('p', { className: 'text-xs text-white/30 mt-2' }, T(lang, 'footerCopyright'))
     )
   );
 }
@@ -428,40 +491,40 @@ function Footer() {
 // ═══════════════════════════════════════════
 //  HOME PAGE
 // ═══════════════════════════════════════════
-function HomePage({ setPage }) {
+function HomePage({ setPage, lang }) {
   const features = [
-    { icon: 'Calculator', title: 'Smart Calculator', desc: 'BMR, TDEE, and macro targets tailored to your goal: cut, maingain, or bulk.', action: 'calculator', color: '#FFB5C5' },
-    { icon: 'Dumbbell', title: 'Training Splits', desc: '5 science-backed programs including the new Hourglass plan with 10K daily steps.', action: 'training', color: '#FF8FAB' },
+    { icon: 'Calculator', title: 'Smart Calculator', desc: 'RMR, TDEE, and macro targets tailored to your goal: cut, maingain, or bulk.', action: 'calculator', color: '#FFB5C5' },
+    { icon: 'Dumbbell', title: T(lang, 'trainingTitle'), desc: '5 science-backed programs including the new Hourglass plan with 10K daily steps.', action: 'training', color: '#FF8FAB' },
     { icon: 'Apple', title: 'Nutrition Tools', desc: 'Macro guide, hydration calculator, food nutrition lookup — all grounded in research.', action: 'nutrition', color: '#D4A574' },
-    { icon: 'Flask', title: 'The Science', desc: 'Female-specific physiology: Stacy Sims principles, menstrual cycle training, gut health.', action: 'science', color: '#BB8FCE' },
+    { icon: 'Flask', title: T(lang, 'scienceTitle'), desc: 'Female-specific physiology: Stacy Sims principles, menstrual cycle training, gut health.', action: 'science', color: '#BB8FCE' },
   ];
   return h('div', null,
     h('section', { className: 'pt-12 pb-16 px-4' },
       h('div', { className: 'max-w-4xl mx-auto text-center' },
         h('div', { className: 'anim-fade-in-up' },
-          h('span', { className: 'inline-block text-xs font-semibold tracking-widest uppercase text-pink bg-pink/15 px-4 py-1.5 rounded-full mb-6' }, 'Science-Based Fitness for Women'),
-          h('h1', { className: 'font-display text-5xl sm:text-6xl lg:text-7xl text-brown mb-6 leading-tight' }, 'Train Smart.'),
-          h('h2', { className: 'font-display text-3xl sm:text-4xl text-text-light mb-8' }, 'Eat Right. Know Why.')
+          h('span', { className: 'inline-block text-xs font-semibold tracking-widest uppercase text-pink bg-pink/15 px-4 py-1.5 rounded-full mb-6' }, T(lang, 'homeTitle')),
+          h('h1', { className: 'font-display text-5xl sm:text-6xl lg:text-7xl text-brown mb-6 leading-tight' }, T(lang, 'homeSubtitle1')),
+          h('h2', { className: 'font-display text-3xl sm:text-4xl text-text-light mb-8' }, T(lang, 'homeSubtitle2'))
         ),
         h('p', { className: 'text-text-light text-lg max-w-2xl mx-auto mb-10 anim-fade-in-up', style: { animationDelay: '0.15s' } },
-          'BunnyLift provides science-backed tools for BMR/TDEE calculation, training program inspiration, nutrition planning, and evidence-based female fitness science. No bro-science, just evidence.'),
+          T(lang, 'homeDesc')),
         h('div', { className: 'flex flex-col sm:flex-row gap-4 justify-center anim-fade-in-up', style: { animationDelay: '0.25s' } },
-          h('button', { onClick: () => setPage('calculator'), className: 'px-8 py-4 bg-gradient-to-r from-pink to-glute text-white font-semibold rounded-2xl shadow-lg shadow-pink/25 hover-lift btn-tap text-lg' }, 'Start Calculator'),
-          h('button', { onClick: () => setPage('training'), className: 'px-8 py-4 bg-white text-brown font-semibold rounded-2xl border-2 border-light-pink hover:border-pink hover-lift btn-tap text-lg' }, 'View Training Plans')
+          h('button', { onClick: () => setPage('calculator'), className: 'px-8 py-4 bg-gradient-to-r from-pink to-glute text-white font-semibold rounded-2xl shadow-lg shadow-pink/25 hover-lift btn-tap text-lg' }, T(lang, 'homeStartCalc')),
+          h('button', { onClick: () => setPage('training'), className: 'px-8 py-4 bg-white text-brown font-semibold rounded-2xl border-2 border-light-pink hover:border-pink hover-lift btn-tap text-lg' }, T(lang, 'homeViewTraining'))
         )
       )
     ),
     h('section', { className: 'py-10 px-4 bg-white/50 border-y border-light-pink/40' },
       h('div', { className: 'max-w-4xl mx-auto flex flex-col sm:flex-row justify-around gap-8 text-center' },
-        [{ v: '5', l: 'Training Programs' }, { v: '22+', l: 'Foods in Database' }, { v: '100%', l: 'Evidence-Based' }].map((s, i) => h('div', { key: i, className: 'anim-fade-in-up', style: { animationDelay: `${i * 0.1}s` } },
+        [{ v: '5', l: T(lang, 'homeStatsPrograms') }, { v: '22+', l: T(lang, 'homeStatsFoods') }, { v: '100%', l: T(lang, 'homeStatsEvidence') }].map((s, i) => h('div', { key: i, className: 'anim-fade-in-up', style: { animationDelay: `${i * 0.1}s` } },
           h('p', { className: 'font-display text-4xl text-pink' }, s.v), h('p', { className: 'text-sm text-text-light mt-1' }, s.l)
         ))
       )
     ),
     h('section', { className: 'py-16 px-4' },
       h('div', { className: 'max-w-6xl mx-auto' },
-        h('h2', { className: 'font-display text-3xl sm:text-4xl text-brown text-center mb-4' }, 'Everything You Need'),
-        h('p', { className: 'text-text-light text-center max-w-xl mx-auto mb-12' }, 'From calorie calculations to training programs — all grounded in peer-reviewed research and tailored for women.'),
+        h('h2', { className: 'font-display text-3xl sm:text-4xl text-brown text-center mb-4' }, T(lang, 'homeSectionTitle')),
+        h('p', { className: 'text-text-light text-center max-w-xl mx-auto mb-12' }, T(lang, 'homeSectionDesc')),
         h('div', { className: 'grid sm:grid-cols-2 lg:grid-cols-4 gap-6' },
           features.map((f, i) => h('button', { key: i, onClick: () => setPage(f.action), className: 'text-left bg-white/70 backdrop-blur-sm rounded-3xl p-6 border border-light-pink/40 hover-lift anim-fade-in-up btn-tap', style: { animationDelay: `${i * 0.1}s` } },
             h('div', { className: 'w-12 h-12 rounded-2xl flex items-center justify-center mb-4', style: { backgroundColor: f.color + '25' } }, h(Icon, { name: f.icon, size: 24, className: 'text-brown' })),
@@ -475,9 +538,9 @@ function HomePage({ setPage }) {
     h('section', { className: 'py-16 px-4' },
       h('div', { className: 'max-w-4xl mx-auto bg-white/70 backdrop-blur-sm rounded-3xl p-8 sm:p-12 border border-light-pink/40 text-center anim-fade-in-up' },
         h(Icon, { name: 'Flask', size: 36, className: 'text-pink mx-auto mb-4' }),
-        h('h2', { className: 'font-display text-3xl text-brown mb-4' }, 'Built on Science, Not Trends'),
+        h('h2', { className: 'font-display text-3xl text-brown mb-4' }, T(lang, 'homeScienceTitle')),
         h('p', { className: 'text-text-light max-w-2xl mx-auto mb-6' }, 'Every recommendation is backed by peer-reviewed research from sources like the ISSN, ACSM, and WHO. We incorporate Stacy Sims\' principles on female physiology, account for hormonal cycles, body composition differences, and unique micronutrient needs.'),
-        h('button', { onClick: () => setPage('science'), className: 'px-6 py-3 bg-light-pink text-brown font-medium rounded-xl btn-tap hover:bg-pink/30 transition-colors' }, 'Explore the Science')
+        h('button', { onClick: () => setPage('science'), className: 'px-6 py-3 bg-light-pink text-brown font-medium rounded-xl btn-tap hover:bg-pink/30 transition-colors' }, T(lang, 'homeScienceCTA'))
       )
     )
   );
@@ -486,7 +549,7 @@ function HomePage({ setPage }) {
 // ═══════════════════════════════════════════
 //  CALCULATOR PAGE
 // ═══════════════════════════════════════════
-function CalculatorPage() {
+function CalculatorPage({ lang }) {
   const [age, setAge] = useState(25);
   const [weight, setWeight] = useState(60);
   const [height, setHeight] = useState(165);
@@ -511,24 +574,24 @@ function CalculatorPage() {
     return { calories, protein, fat, carbs, desc, weeklyChange };
   }, [goal, tdee, weight]);
   const activities = [
-    { value: 1.2, label: 'Sedentary', desc: 'Little or no exercise' }, { value: 1.375, label: 'Lightly Active', desc: '1-3 days/week' },
-    { value: 1.55, label: 'Moderately Active', desc: '3-5 days/week' }, { value: 1.725, label: 'Very Active', desc: '6-7 days/week' },
-    { value: 1.9, label: 'Extra Active', desc: 'Physical job + training' },
+    { value: 1.2, label: T(lang, 'calcSedentary'), desc: T(lang, 'calcSedentaryDesc') }, { value: 1.375, label: T(lang, 'calcLightlyActive'), desc: T(lang, 'calcLightlyActiveDesc') },
+    { value: 1.55, label: T(lang, 'calcModeratelyActive'), desc: T(lang, 'calcModeratelyActiveDesc') }, { value: 1.725, label: T(lang, 'calcVeryActive'), desc: T(lang, 'calcVeryActiveDesc') },
+    { value: 1.9, label: T(lang, 'calcExtraActive'), desc: T(lang, 'calcExtraActiveDesc') },
   ];
   const goals = [
-    { key: 'cut', label: 'Cut', subtitle: 'Fat Loss', color: '#98D8C8', desc: 'TDEE - 18%' },
-    { key: 'maingain', label: 'Maingaining', subtitle: 'Body Recomp', color: '#F7DC6F', desc: 'TDEE + 3%' },
-    { key: 'bulk', label: 'Bulk', subtitle: 'Muscle Gain', color: '#FF8FAB', desc: 'TDEE + 12%' },
+    { key: 'cut', label: T(lang, 'calcCut'), subtitle: T(lang, 'calcCutSubtitle'), color: '#98D8C8', desc: T(lang, 'calcCutDesc') },
+    { key: 'maingain', label: T(lang, 'calcMaingain'), subtitle: T(lang, 'calcMaingainSubtitle'), color: '#F7DC6F', desc: T(lang, 'calcMaingainDesc') },
+    { key: 'bulk', label: T(lang, 'calcBulk'), subtitle: T(lang, 'calcBulkSubtitle'), color: '#FF8FAB', desc: T(lang, 'calcBulkDesc') },
   ];
 
   return h('div', { className: 'max-w-5xl mx-auto px-4 py-8 sm:py-12' },
     h('div', { className: 'text-center mb-12 anim-fade-in-up' },
-      h('h1', { className: 'font-display text-4xl sm:text-5xl text-brown mb-3' }, 'Fitness Calculator'),
-      h('p', { className: 'text-text-light max-w-xl mx-auto' }, 'BMR, TDEE, and macro targets based on the Mifflin-St Jeor equation for women.')
+      h('h1', { className: 'font-display text-4xl sm:text-5xl text-brown mb-3' }, T(lang, 'calcTitle')),
+      h('p', { className: 'text-text-light max-w-xl mx-auto' }, T(lang, 'calcSubtitle'))
     ),
     h('div', { className: 'grid lg:grid-cols-2 gap-8 mb-12' },
       h('div', { className: 'bg-white/70 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-light-pink/40 anim-fade-in-up' },
-        h('h2', { className: 'font-display text-2xl text-brown mb-6 flex items-center gap-2' }, h(Icon, { name: 'Calculator', size: 22 }), ' Your Info'),
+        h('h2', { className: 'font-display text-2xl text-brown mb-6 flex items-center gap-2' }, h(Icon, { name: 'Calculator', size: 22 }), T(lang, 'calcInfoTitle')),
         h('div', { className: 'space-y-5' },
           [['Age', age, 15, 80, 'years', setAge], ['Weight', weight, 35, 150, 'kg', setWeight], ['Height', height, 130, 200, 'cm', setHeight]].map(([label, val, min, max, unit, setter]) =>
             h('div', { key: label }, h('label', { className: 'block text-sm font-medium text-brown mb-2' }, `${label}: ${val} ${unit}`),
@@ -537,7 +600,7 @@ function CalculatorPage() {
         )
       ),
       h('div', { className: 'bg-white/70 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-light-pink/40 anim-fade-in-up', style: { animationDelay: '0.1s' } },
-        h('h2', { className: 'font-display text-2xl text-brown mb-6 flex items-center gap-2' }, h(Icon, { name: 'Zap', size: 22 }), ' Activity Level'),
+        h('h2', { className: 'font-display text-2xl text-brown mb-6 flex items-center gap-2' }, h(Icon, { name: 'Zap', size: 22 }), T(lang, 'calcActivityTitle')),
         h('div', { className: 'space-y-3' }, activities.map(a => h('button', { key: a.value, onClick: () => setActivity(a.value), className: cls('w-full text-left p-4 rounded-2xl border-2 transition-all btn-tap', activity === a.value ? 'border-pink bg-pink/10' : 'border-light-pink/50 hover:border-pink/30') },
           h('div', { className: 'flex items-center justify-between' }, h('span', { className: cls('font-medium', activity === a.value ? 'text-brown' : 'text-text') }, a.label), activity === a.value ? h(Icon, { name: 'Check', size: 16, className: 'text-pink' }) : null),
           h('p', { className: 'text-xs text-text-light mt-1' }, a.desc), h('p', { className: 'text-xs text-text-light' }, `Multiplier: ${a.value}`)
@@ -546,14 +609,14 @@ function CalculatorPage() {
     ),
     h('div', { className: 'grid sm:grid-cols-2 gap-6 mb-12' },
       h('div', { className: 'bg-gradient-to-br from-brown to-[#6B4423] text-white rounded-3xl p-8 text-center anim-fade-in-up', style: { animationDelay: '0.15s' } },
-        h('p', { className: 'text-white/60 text-sm uppercase tracking-wider mb-2' }, 'BMR'), h('p', { className: 'font-display text-5xl mb-2' }, bmr.toLocaleString()), h('p', { className: 'text-white/60 text-sm' }, 'calories / day'), h('p', { className: 'text-white/40 text-xs mt-3' }, 'At complete rest')
+        h('p', { className: 'text-white/60 text-sm uppercase tracking-wider mb-2' }, T(lang, 'calcBMR')), h('p', { className: 'font-display text-5xl mb-2' }, bmr.toLocaleString()), h('p', { className: 'text-white/60 text-sm' }, T(lang, 'calcBMRUnit')), h('p', { className: 'text-white/40 text-xs mt-3' }, T(lang, 'calcBMRNote'))
       ),
       h('div', { className: 'bg-gradient-to-br from-pink to-glute text-white rounded-3xl p-8 text-center anim-fade-in-up', style: { animationDelay: '0.2s' } },
-        h('p', { className: 'text-white/70 text-sm uppercase tracking-wider mb-2' }, 'TDEE'), h('p', { className: 'font-display text-5xl mb-2' }, tdee.toLocaleString()), h('p', { className: 'text-white/70 text-sm' }, 'calories / day'), h('p', { className: 'text-white/50 text-xs mt-3' }, 'Actual daily burn')
+        h('p', { className: 'text-white/70 text-sm uppercase tracking-wider mb-2' }, T(lang, 'calcTDEE')), h('p', { className: 'font-display text-5xl mb-2' }, tdee.toLocaleString()), h('p', { className: 'text-white/70 text-sm' }, T(lang, 'calcBMRUnit')), h('p', { className: 'text-white/50 text-xs mt-3' }, T(lang, 'calcTDEENote'))
       )
     ),
     h('div', { className: 'mb-12 anim-fade-in-up', style: { animationDelay: '0.25s' } },
-      h('h2', { className: 'font-display text-2xl text-brown mb-6 text-center' }, 'Choose Your Goal'),
+      h('h2', { className: 'font-display text-2xl text-brown mb-6 text-center' }, T(lang, 'calcGoalTitle')),
       h('div', { className: 'grid sm:grid-cols-3 gap-4' }, goals.map(g => h('button', { key: g.key, onClick: () => handleGoalSelect(g.key), className: cls('p-6 rounded-3xl border-2 text-left transition-all btn-tap hover-lift', goal === g.key ? 'border-pink bg-pink/10' : 'border-light-pink/50 bg-white/50') },
         h('div', { className: 'flex items-center gap-3 mb-3' }, h('span', { className: 'w-4 h-4 rounded-full border-2 flex items-center justify-center', style: { borderColor: g.color } }, goal === g.key ? h('span', { className: 'w-2 h-2 rounded-full', style: { backgroundColor: g.color } }) : null), h('span', { className: 'font-semibold text-brown' }, g.label)),
         h('p', { className: 'text-xs text-text-light mb-1' }, g.subtitle), h('p', { className: 'text-xs text-text-light' }, g.desc)
@@ -563,7 +626,7 @@ function CalculatorPage() {
     h(AnimatePresence, { show: goalData !== null },
       h('div', { className: 'anim-fade-in-up' },
         h('div', { className: 'bg-white/70 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-light-pink/40 mb-8' },
-          h('div', { className: 'text-center mb-6' }, h('p', { className: 'text-text-light text-sm uppercase tracking-wider mb-2' }, 'Your Daily Target'), h('p', { className: 'font-display text-5xl text-brown' }, `${goalData?.calories?.toLocaleString()} kcal`), h('p', { className: 'text-text-light text-sm mt-2' }, goalData?.weeklyChange), h('p', { className: 'text-text-light text-xs max-w-lg mx-auto mt-3' }, goalData?.desc)),
+          h('div', { className: 'text-center mb-6' }, h('p', { className: 'text-text-light text-sm uppercase tracking-wider mb-2' }, T(lang, 'calcTargetTitle')), h('p', { className: 'font-display text-5xl text-brown' }, `${goalData?.calories?.toLocaleString()} kcal`), h('p', { className: 'text-text-light text-sm mt-2' }, goalData?.weeklyChange), h('p', { className: 'text-text-light text-xs max-w-lg mx-auto mt-3' }, goalData?.desc)),
           h('div', { className: 'space-y-4 max-w-2xl mx-auto' },
             [['Protein', goalData?.protein, 4, '#FF8FAB'], ['Carbohydrates', goalData?.carbs, 4, '#D4A574'], ['Fats', goalData?.fat, 9, '#F7DC6F']].map(([label, val, mult, color]) =>
               h('div', { key: label }, h('div', { className: 'flex justify-between text-sm mb-1' }, h('span', { className: 'font-medium text-brown' }, label), h('span', { className: 'text-text-light' }, `${val}g (${Math.round(val * mult)} kcal)`)),
@@ -571,9 +634,9 @@ function CalculatorPage() {
             ))
           ),
           h('div', { className: 'grid grid-cols-3 gap-4 mt-8' },
-            h('div', { className: 'bg-pink/10 rounded-2xl p-4 text-center' }, h('p', { className: 'font-display text-2xl text-brown' }, `${goalData?.protein}g`), h('p', { className: 'text-xs text-text-light mt-1' }, 'Protein')),
-            h('div', { className: 'bg-leg/10 rounded-2xl p-4 text-center' }, h('p', { className: 'font-display text-2xl text-brown' }, `${goalData?.carbs}g`), h('p', { className: 'text-xs text-text-light mt-1' }, 'Carbs')),
-            h('div', { className: 'bg-chest/20 rounded-2xl p-4 text-center' }, h('p', { className: 'font-display text-2xl text-brown' }, `${goalData?.fat}g`), h('p', { className: 'text-xs text-text-light mt-1' }, 'Fats'))
+            h('div', { className: 'bg-pink/10 rounded-2xl p-4 text-center' }, h('p', { className: 'font-display text-2xl text-brown' }, `${goalData?.protein}g`), h('p', { className: 'text-xs text-text-light mt-1' }, T(lang, 'calcProtein'))),
+            h('div', { className: 'bg-leg/10 rounded-2xl p-4 text-center' }, h('p', { className: 'font-display text-2xl text-brown' }, `${goalData?.carbs}g`), h('p', { className: 'text-xs text-text-light mt-1' }, T(lang, 'calcCarbs'))),
+            h('div', { className: 'bg-chest/20 rounded-2xl p-4 text-center' }, h('p', { className: 'font-display text-2xl text-brown' }, `${goalData?.fat}g`), h('p', { className: 'text-xs text-text-light mt-1' }, T(lang, 'calcFats')))
           )
         ),
         h('div', { className: 'bg-pink/10 border border-pink/20 rounded-2xl p-5 flex gap-4 items-start' },
@@ -589,7 +652,7 @@ function CalculatorPage() {
 // ═══════════════════════════════════════════
 //  TRAINING PAGE (新增滚动交互 + Hourglass)
 // ═══════════════════════════════════════════
-function TrainingPage() {
+function TrainingPage({ lang }) {
   const [selectedSplit, setSelectedSplit] = useState('ppl');
   const [expandedDay, setExpandedDay] = useState(0);
   const scheduleRef = useRef(null);
@@ -608,8 +671,8 @@ function TrainingPage() {
 
   return h('div', { className: 'max-w-5xl mx-auto px-4 py-8 sm:py-12' },
     h('div', { className: 'text-center mb-12 anim-fade-in-up' },
-      h('h1', { className: 'font-display text-4xl sm:text-5xl text-brown mb-3' }, 'Training Splits'),
-      h('p', { className: 'text-text-light max-w-2xl mx-auto' }, 'Choose a program that matches your experience level and schedule. Each split is periodized for progressive overload.')
+      h('h1', { className: 'font-display text-4xl sm:text-5xl text-brown mb-3' }, T(lang, 'trainingTitle')),
+      h('p', { className: 'text-text-light max-w-2xl mx-auto' }, T(lang, 'trainingSubtitle'))
     ),
     // Split selector cards
     h('div', { className: 'grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mb-6' },
@@ -626,7 +689,7 @@ function TrainingPage() {
     ),
     // Scroll hint
     h('div', { className: 'text-center mb-8 anim-fade-in' },
-      h('p', { className: 'text-xs text-text-light' }, 'Click a program above to view its schedule')
+      h('p', { className: 'text-xs text-text-light' }, T(lang, 'trainingClickHint'))
     ),
     // Split detail
     h('div', { ref: scheduleRef, className: 'scroll-mt-24 anim-fade-in' },
@@ -638,7 +701,7 @@ function TrainingPage() {
             h('p', { className: 'text-sm' }, h('span', { className: 'font-medium text-brown' }, 'Ideal for: '), h('span', { className: 'text-text-light' }, split.idealFor))
           ),
           h('div', { className: 'flex gap-4 lg:flex-col lg:justify-center shrink-0' },
-            h('div', { className: 'bg-light-pink/40 rounded-2xl px-5 py-3 text-center' }, h('p', { className: 'font-display text-2xl text-brown' }, split.frequency.split(' ')[0]), h('p', { className: 'text-xs text-text-light' }, 'Days/Week')),
+            h('div', { className: 'bg-light-pink/40 rounded-2xl px-5 py-3 text-center' }, h('p', { className: 'font-display text-2xl text-brown' }, split.frequency.split(' ')[0]), h('p', { className: 'text-xs text-text-light' }, T(lang, 'trainingDaysPerWeek'))),
             split.id === 'hourglass' ? h('div', { className: 'bg-glute/20 rounded-2xl px-5 py-3 text-center' }, h('p', { className: 'font-display text-2xl text-brown' }, '10K'), h('p', { className: 'text-xs text-text-light' }, 'Steps/Day')) : null
           )
         ),
@@ -679,18 +742,18 @@ function TrainingPage() {
 // ═══════════════════════════════════════════
 //  NUTRITION PAGE (新增饮水计算器 + 食物计算器)
 // ═══════════════════════════════════════════
-function NutritionPage() {
+function NutritionPage({ lang }) {
   const [activeTab, setActiveTab] = useState('macros');
   const g = NUTRITION_GUIDE;
 
   return h('div', { className: 'max-w-5xl mx-auto px-4 py-8 sm:py-12' },
     h('div', { className: 'text-center mb-12 anim-fade-in-up' },
-      h('h1', { className: 'font-display text-4xl sm:text-5xl text-brown mb-3' }, 'Nutrition Guide'),
+      h('h1', { className: 'font-display text-4xl sm:text-5xl text-brown mb-3' }, T(lang, 'nutritionTitle')),
       h('p', { className: 'text-text-light max-w-2xl mx-auto' }, 'Macros, micronutrients, supplements, hydration, and a food database — all tailored for female physiology.')
     ),
     h('div', { className: 'flex justify-center mb-10' },
       h('div', { className: 'inline-flex bg-light-pink/40 rounded-full p-1 gap-1 flex-wrap' },
-        [{ k: 'macros', l: 'Macros' }, { k: 'micros', l: 'Micronutrients' }, { k: 'supplements', l: 'Supplements' }, { k: 'hydration', l: 'Hydration' }, { k: 'foods', l: 'Food Database' }].map(t =>
+        [{ k: 'macros', l: T(lang, 'nutritionTabMacros') }, { k: 'micros', l: T(lang, 'nutritionTabMicros') }, { k: 'supplements', l: T(lang, 'nutritionTabSupplements') }, { k: 'hydration', l: T(lang, 'nutritionTabHydration') }, { k: 'foods', l: T(lang, 'nutritionTabFoods') }].map(t =>
           h('button', { key: t.k, onClick: () => setActiveTab(t.k), className: cls('px-4 py-2.5 rounded-full text-sm font-medium transition-colors btn-tap', activeTab === t.k ? 'bg-white text-brown shadow-sm' : 'text-text-light') }, t.l)
         )
       )
@@ -704,15 +767,15 @@ function NutritionPage() {
             h('div', { className: 'w-12 h-12 rounded-2xl flex items-center justify-center mb-4', style: { backgroundColor: m.data.color + '20' } }, h(Icon, { name: m.icon, size: 24, className: 'text-brown' })),
             h('h3', { className: 'font-display text-2xl text-brown mb-3' }, m.data.title),
             h('p', { className: 'text-sm text-text-light mb-5 leading-relaxed' }, m.data.description),
-            h('h4', { className: 'text-xs font-semibold text-brown uppercase tracking-wider mb-2' }, 'Best Sources'),
+            h('h4', { className: 'text-xs font-semibold text-brown uppercase tracking-wider mb-2' }, T(lang, 'nutritionBestSources')),
             h('ul', { className: 'space-y-1.5 mb-5' }, m.data.sources.map((s, si) => h('li', { key: si, className: 'text-sm text-text flex items-center gap-2' }, h('span', { className: 'w-1.5 h-1.5 rounded-full shrink-0', style: { backgroundColor: m.data.color } }), s))),
-            h('div', { className: 'bg-cream/50 rounded-2xl p-4 mb-4' }, h('h4', { className: 'text-xs font-semibold text-brown uppercase tracking-wider mb-2' }, 'Key Tips'), h('ul', { className: 'space-y-1.5' }, m.data.tips.map((t, ti) => h('li', { key: ti, className: 'text-xs text-text-light flex items-start gap-2' }, h(Icon, { name: 'Check', size: 12, className: 'text-pink shrink-0 mt-0.5' }), t)))),
+            h('div', { className: 'bg-cream/50 rounded-2xl p-4 mb-4' }, h('h4', { className: 'text-xs font-semibold text-brown uppercase tracking-wider mb-2' }, T(lang, 'nutritionKeyTips')), h('ul', { className: 'space-y-1.5' }, m.data.tips.map((t, ti) => h('li', { key: ti, className: 'text-xs text-text-light flex items-start gap-2' }, h(Icon, { name: 'Check', size: 12, className: 'text-pink shrink-0 mt-0.5' }), t)))),
             m.data.stacySims ? h('div', { className: 'p-3 bg-pink/8 rounded-xl border-l-3 border-pink/30' }, h('p', { className: 'text-[11px] text-text-light leading-relaxed italic' }, h('span', { className: 'font-semibold text-pink not-italic' }, 'Stacy Sims: '), m.data.stacySims)) : null
           )
         )
       ),
       h('div', { className: 'bg-white/70 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-light-pink/40' },
-        h('h3', { className: 'font-display text-2xl text-brown mb-6 text-center' }, 'Protein Intake by Goal'),
+        h('h3', { className: 'font-display text-2xl text-brown mb-6 text-center' }, T(lang, 'nutritionProteinByGoal')),
         h('div', { className: 'grid sm:grid-cols-3 gap-6' },
           [{ label: 'Cutting', val: '2.0-2.2g/kg', color: '#98D8C8', desc: 'Preserves lean mass during deficit' }, { label: 'Maingaining', val: '1.6-2.0g/kg', color: '#F7DC6F', desc: 'Moderate for recomposition' }, { label: 'Bulking', val: '1.8-2.0g/kg', color: '#FF8FAB', desc: 'Supports MPS in surplus' }].map((p, i) =>
             h('div', { key: i, className: 'text-center p-6 rounded-2xl anim-fade-in-up', style: { backgroundColor: p.color + '18', animationDelay: `${i * 0.1}s` } }, h('p', { className: 'font-display text-3xl mb-1', style: { color: p.color } }, p.val), h('p', { className: 'font-semibold text-brown mb-1' }, p.label), h('p', { className: 'text-xs text-text-light' }, p.desc))
@@ -746,17 +809,17 @@ function NutritionPage() {
     ) : null,
 
     // === HYDRATION TAB (含计算器) ===
-    activeTab === 'hydration' ? h(HydrationCalculator, { data: g.hydration }) : null,
+    activeTab === 'hydration' ? h(HydrationCalculator, { data: g.hydration, lang }) : null,
 
     // === FOOD DATABASE TAB ===
-    activeTab === 'foods' ? h(FoodCalculator) : null
+    activeTab === 'foods' ? h(FoodCalculator, { lang }) : null
   );
 }
 
 // ═══════════════════════════════════════════
 //  HYDRATION CALCULATOR
 // ═══════════════════════════════════════════
-function HydrationCalculator({ data }) {
+function HydrationCalculator({ data, lang }) {
   const [bodyWeight, setBodyWeight] = useState(60);
   const [exerciseMin, setExerciseMin] = useState(60);
   const [takingCreatine, setTakingCreatine] = useState(false);
@@ -772,8 +835,8 @@ function HydrationCalculator({ data }) {
   return h('div', { className: 'anim-fade-in max-w-2xl mx-auto' },
     h('div', { className: 'bg-white/70 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-light-pink/40 mb-6' },
       h(Icon, { name: 'Droplets', size: 36, className: 'text-pink mx-auto mb-4' }),
-      h('h3', { className: 'font-display text-2xl text-brown text-center mb-2' }, 'Hydration Calculator'),
-      h('p', { className: 'text-text-light text-center text-sm mb-6' }, 'Based on Stacy Sims\' research on female hydration needs.'),
+      h('h3', { className: 'font-display text-2xl text-brown text-center mb-2' }, T(lang, 'hydrationTitle')),
+      h('p', { className: 'text-text-light text-center text-sm mb-6' }, T(lang, 'hydrationSubtitle')),
 
       // Inputs
       h('div', { className: 'space-y-5 mb-8' },
@@ -784,8 +847,8 @@ function HydrationCalculator({ data }) {
         h('div', null, h('label', { className: 'block text-sm font-medium text-brown mb-2' }, `Caffeine: ${caffeineCups} cups/day`),
           h('input', { type: 'range', min: 0, max: 6, value: caffeineCups, onChange: e => setCaffeineCups(+e.target.value), className: 'w-full accent-pink' })),
         h('div', { className: 'flex items-center justify-between p-4 rounded-2xl bg-cream/50' },
-          h('span', { className: 'text-sm text-brown font-medium' }, 'Taking Creatine?'),
-                    h('button', { onClick: () => setTakingCreatine(!takingCreatine), className: cls('w-12 h-7 rounded-full transition-colors relative shrink-0', takingCreatine ? 'bg-pink' : 'bg-light-pink') },
+          h('span', { className: 'text-sm text-brown font-medium' }, T(lang, 'hydrationCreatine')),
+          h('button', { onClick: () => setTakingCreatine(!takingCreatine), className: cls('w-12 h-7 rounded-full transition-colors relative shrink-0', takingCreatine ? 'bg-pink' : 'bg-light-pink') },
             h('span', { className: cls('absolute top-0.5 w-6 h-6 bg-white rounded-full shadow transition-transform', takingCreatine ? 'translate-x-5' : 'translate-x-0.5') })
           )
         )
@@ -793,7 +856,7 @@ function HydrationCalculator({ data }) {
 
       // Result
       h('div', { className: 'bg-gradient-to-br from-pink to-glute text-white rounded-2xl p-6 mb-6' },
-        h('p', { className: 'text-white/70 text-sm uppercase tracking-wider mb-2 text-center' }, 'Daily Water Target'),
+        h('p', { className: 'text-white/70 text-sm uppercase tracking-wider mb-2 text-center' }, T(lang, 'hydrationTarget')),
         h('p', { className: 'font-display text-5xl text-center' }, `${totalLiters}L`),
         h('p', { className: 'text-white/60 text-sm text-center' }, `${totalWater} ml / day`)
       ),
@@ -808,14 +871,14 @@ function HydrationCalculator({ data }) {
 
       h('div', { className: 'p-4 bg-pink/10 rounded-2xl flex gap-3 items-start' },
         h(Icon, { name: 'Info', size: 18, className: 'text-pink shrink-0 mt-0.5' }),
-        h('div', null, h('p', { className: 'text-sm text-brown font-medium mb-1' }, 'Stacy Sims Tip'),
+        h('div', null, h('p', { className: 'text-sm text-brown font-medium mb-1' }, T(lang, 'hydrationStacyTip')),
           h('p', { className: 'text-xs text-text-light leading-relaxed' }, data.stacySimsNote))
       )
     ),
 
     // General tips
     h('div', { className: 'bg-white/60 rounded-3xl p-6 border border-light-pink/30' },
-      h('h4', { className: 'font-semibold text-brown mb-3' }, 'Hydration Tips'),
+      h('h4', { className: 'font-semibold text-brown mb-3' }, T(lang, 'hydrationTips')),
       h('div', { className: 'space-y-2' }, data.tips.slice(4).map((t, i) => h('div', { key: i, className: 'flex items-start gap-2 text-sm text-text-light' }, h(Icon, { name: 'Check', size: 14, className: 'text-pink shrink-0 mt-0.5' }), t)))
     )
   );
@@ -824,7 +887,7 @@ function HydrationCalculator({ data }) {
 // ═══════════════════════════════════════════
 //  FOOD CALCULATOR
 // ═══════════════════════════════════════════
-function FoodCalculator() {
+function FoodCalculator({ lang }) {
   const [selectedFoods, setSelectedFoods] = useState([]);
 
   const addFood = (food) => {
@@ -868,14 +931,14 @@ function FoodCalculator() {
       // Totals
       h('div', { className: 'grid grid-cols-4 gap-3' },
         h('div', { className: 'bg-gradient-to-br from-brown to-[#6B4423] text-white rounded-2xl p-3 text-center' }, h('p', { className: 'font-display text-xl' }, Math.round(totals.kcal)), h('p', { className: 'text-[10px] text-white/60' }, 'kcal')),
-        h('div', { className: 'bg-pink/10 rounded-2xl p-3 text-center' }, h('p', { className: 'font-display text-xl text-brown' }, `${totals.protein.toFixed(1)}g`), h('p', { className: 'text-[10px] text-text-light' }, 'Protein')),
-        h('div', { className: 'bg-leg/10 rounded-2xl p-3 text-center' }, h('p', { className: 'font-display text-xl text-brown' }, `${totals.carbs.toFixed(1)}g`), h('p', { className: 'text-[10px] text-text-light' }, 'Carbs')),
-        h('div', { className: 'bg-chest/20 rounded-2xl p-3 text-center' }, h('p', { className: 'font-display text-xl text-brown' }, `${totals.fat.toFixed(1)}g`), h('p', { className: 'text-[10px] text-text-light' }, 'Fats'))
+        h('div', { className: 'bg-pink/10 rounded-2xl p-3 text-center' }, h('p', { className: 'font-display text-xl text-brown' }, `${totals.protein.toFixed(1)}g`), h('p', { className: 'text-[10px] text-text-light' }, T(lang, 'calcProtein'))),
+        h('div', { className: 'bg-leg/10 rounded-2xl p-3 text-center' }, h('p', { className: 'font-display text-xl text-brown' }, `${totals.carbs.toFixed(1)}g`), h('p', { className: 'text-[10px] text-text-light' }, T(lang, 'calcCarbs'))),
+        h('div', { className: 'bg-chest/20 rounded-2xl p-3 text-center' }, h('p', { className: 'font-display text-xl text-brown' }, `${totals.fat.toFixed(1)}g`), h('p', { className: 'text-[10px] text-text-light' }, T(lang, 'calcFats')))
       )
     ) : null,
 
     // Food grid
-    h('h3', { className: 'font-display text-xl text-brown mb-4' }, 'Common Foods'),
+    h('h3', { className: 'font-display text-xl text-brown mb-4' }, T(lang, 'foodTitle')),
     h('div', { className: 'grid sm:grid-cols-2 lg:grid-cols-3 gap-3' },
       FOOD_DATABASE.map((food, i) => h('button', { key: food.id, onClick: () => addFood(food), className: 'text-left bg-white/60 rounded-2xl p-4 border border-light-pink/30 hover-lift anim-fade-in-up btn-tap', style: { animationDelay: `${i * 0.03}s` } },
         h('div', { className: 'flex items-center gap-3' },
@@ -896,20 +959,20 @@ function FoodCalculator() {
 // ═══════════════════════════════════════════
 //  SCIENCE PAGE (新增Stacy Sims + 排便健康)
 // ═══════════════════════════════════════════
-function SciencePage() {
+function SciencePage({ lang }) {
   const [activeTab, setActiveTab] = useState('stacy');
   const d = SCIENCE_DATA;
 
   return h('div', { className: 'max-w-5xl mx-auto px-4 py-8 sm:py-12' },
     h('div', { className: 'text-center mb-12 anim-fade-in-up' },
-      h('h1', { className: 'font-display text-4xl sm:text-5xl text-brown mb-3' }, 'The Science'),
-      h('p', { className: 'text-text-light max-w-2xl mx-auto' }, 'Evidence-based insights into female physiology, metabolism, gut health, and training adaptations.')
+      h('h1', { className: 'font-display text-4xl sm:text-5xl text-brown mb-3' }, T(lang, 'scienceTitle')),
+      h('p', { className: 'text-text-light max-w-2xl mx-auto' }, T(lang, 'scienceSubtitle'))
     ),
 
     // Tab selector
     h('div', { className: 'flex justify-center mb-10' },
       h('div', { className: 'inline-flex bg-light-pink/40 rounded-full p-1 gap-1 flex-wrap' },
-        [{ k: 'menstrual', l: 'Menstrual Cycle' }, { k: 'metabolism', l: 'Metabolism' }, { k: 'bodyfat', l: 'Body Fat' }, { k: 'gut', l: 'Gut Health' }].map(t =>
+        [{ k: 'menstrual', l: T(lang, 'scienceTabMenstrual') }, { k: 'metabolism', l: T(lang, 'scienceTabMetabolism') }, { k: 'bodyfat', l: T(lang, 'scienceTabBodyFat') }, { k: 'gut', l: T(lang, 'scienceTabGut') }].map(t =>
           h('button', { key: t.k, onClick: () => setActiveTab(t.k), className: cls('px-4 py-2.5 rounded-full text-sm font-medium transition-colors btn-tap', activeTab === t.k ? 'bg-white text-brown shadow-sm' : 'text-text-light') }, t.l)
         )
       )
@@ -932,10 +995,10 @@ function SciencePage() {
       ),
       // Birth Control (Stacy Sims)
       h('div', { className: 'bg-white/70 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-light-pink/40 anim-fade-in-up' },
-        h('h3', { className: 'font-display text-xl text-brown mb-3' }, 'Birth Control Changes Everything'),
-        h('p', { className: 'text-sm text-text-light leading-relaxed mb-4' }, 'Hormonal contraceptives flatten the natural hormonal fluctuations. Women on the pill may not experience the same performance peaks in the follicular phase, and recovery patterns may differ. Training should be periodized differently for women on hormonal birth control.'),
+        h('h3', { className: 'font-display text-xl text-brown mb-3' }, T(lang, 'scienceBirthControl')),
+        h('p', { className: 'text-sm text-text-light leading-relaxed mb-4' }, T(lang, 'scienceBirthControlDesc')),
         h('div', { className: 'p-3 bg-cream/50 rounded-xl' },
-          h('p', { className: 'text-xs text-text-light' }, h('span', { className: 'font-semibold text-brown' }, 'Note: '), 'Not all women experience significant cycle-related performance changes. Track your own training metrics to understand your individual patterns. Women on hormonal birth control will have different patterns.')
+          h('p', { className: 'text-xs text-text-light' }, h('span', { className: 'font-semibold text-brown' }, 'Note: '), 'The field is evolving rapidly. We update content as new research emerges. Current best practice: train consistently, track YOUR individual symptoms, and adjust based on how you feel — not calendar dates.')
         )
       )
     ) : null,
@@ -945,17 +1008,17 @@ function SciencePage() {
       // Women Are Not Small Men
       h('div', { className: 'bg-gradient-to-br from-pink to-glute text-white rounded-3xl p-6 sm:p-8 mb-8' },
         h('div', { className: 'text-center mb-4' },
-          h('h2', { className: 'font-display text-2xl sm:text-3xl mb-3' }, 'Women Are Not Small Men'),
-          h('p', { className: 'text-white/80 text-sm max-w-2xl mx-auto leading-relaxed' }, 'Most sports science research has been conducted on men, then simply scaled down for women. This does not work. Women have different hormonal profiles, body compositions, and metabolic responses. Training and nutrition must be adapted to these differences for optimal results.')
+          h('h2', { className: 'font-display text-2xl sm:text-3xl mb-3' }, T(lang, 'scienceWomenAreNotSmallMen')),
+          h('p', { className: 'text-white/80 text-sm max-w-2xl mx-auto leading-relaxed' }, T(lang, 'scienceWomenAreNotSmallMenDesc'))
         ),
         h('div', { className: 'bg-white/15 rounded-2xl p-4 text-center' },
-          h('p', { className: 'text-white/60 text-xs mb-1' }, 'Recommended Reading'),
+          h('p', { className: 'text-white/60 text-xs mb-1' }, T(lang, 'scienceRecommendedReading')),
           h('p', { className: 'font-display text-lg' }, 'ROAR & Next Level by Dr. Stacy Sims')
         )
       ),
       h('div', { className: 'bg-white/70 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-light-pink/40 mb-8' },
-        h('div', { className: 'flex items-center gap-3 mb-6' }, h('div', { className: 'w-12 h-12 rounded-2xl bg-chest/20 flex items-center justify-center' }, h(Icon, { name: 'Flame', size: 24, className: 'text-brown' })), h('h2', { className: 'font-display text-2xl sm:text-3xl text-brown' }, d.bmrFacts.title)),
-        h('div', { className: 'grid sm:grid-cols-2 gap-3' }, d.bmrFacts.facts.map((fact, i) => h('div', { key: i, className: 'flex items-start gap-3 p-4 rounded-xl bg-cream/50 anim-fade-in-up', style: { animationDelay: `${i * 0.05}s` } },
+        h('div', { className: 'flex items-center gap-3 mb-6' }, h('div', { className: 'w-12 h-12 rounded-2xl bg-chest/20 flex items-center justify-center' }, h(Icon, { name: 'Flame', size: 24, className: 'text-brown' })), h('h2', { className: 'font-display text-2xl sm:text-3xl text-brown' }, d.rmrFacts.title)),
+        h('div', { className: 'grid sm:grid-cols-2 gap-3' }, d.rmrFacts.facts.map((fact, i) => h('div', { key: i, className: 'flex items-start gap-3 p-4 rounded-xl bg-cream/50 anim-fade-in-up', style: { animationDelay: `${i * 0.05}s` } },
           h(Icon, { name: 'Check', size: 16, className: 'text-pink shrink-0 mt-0.5' }), h('p', { className: 'text-sm text-text leading-relaxed' }, fact)
         )))
       ),
@@ -969,12 +1032,12 @@ function SciencePage() {
       // Training Principles (Stacy Sims)
       h('div', { className: 'grid sm:grid-cols-2 gap-4' },
         h('div', { className: 'bg-white/70 backdrop-blur-sm rounded-3xl p-6 border border-light-pink/40 anim-fade-in-up', style: { animationDelay: '0.1s' } },
-          h('h3', { className: 'font-display text-xl text-brown mb-3' }, 'Lift Heavy'),
-          h('p', { className: 'text-sm text-text-light leading-relaxed' }, 'Women have a higher proportion of type I (endurance) fibers and lower type II (power) fibers. Prioritize heavy resistance training (3-6 reps at 80-90% 1RM) to effectively recruit type II fibers for strength and power development.')
+          h('h3', { className: 'font-display text-xl text-brown mb-3' }, T(lang, 'scienceLiftHeavy')),
+          h('p', { className: 'text-sm text-text-light leading-relaxed' }, T(lang, 'scienceLiftHeavyDesc'))
         ),
         h('div', { className: 'bg-white/70 backdrop-blur-sm rounded-3xl p-6 border border-light-pink/40 anim-fade-in-up', style: { animationDelay: '0.15s' } },
-          h('h3', { className: 'font-display text-xl text-brown mb-3' }, 'Recovery is Non-Negotiable'),
-          h('p', { className: 'text-sm text-text-light leading-relaxed' }, "Due to estrogen's role in muscle damage and inflammation, women experience less muscle damage but also less muscle protein breakdown. Women can train more frequently but need 48 hours of recovery for the same muscle group.")
+          h('h3', { className: 'font-display text-xl text-brown mb-3' }, T(lang, 'scienceRecovery')),
+          h('p', { className: 'text-sm text-text-light leading-relaxed' }, T(lang, 'scienceRecoveryDesc'))
         )
       )
     ) : null,
@@ -997,11 +1060,11 @@ function SciencePage() {
     ) : null,
 
     // === GUT HEALTH TAB (新增) ===
-    activeTab === 'gut' ? h(GutHealthSection) : null,
+    activeTab === 'gut' ? h(GutHealthSection, { lang }) : null,
 
     // References (always visible at bottom)
     h('div', { className: 'mt-12 bg-white/50 rounded-3xl p-6 sm:p-8 border border-light-pink/30 anim-fade-in-up' },
-      h('h3', { className: 'font-display text-xl text-brown mb-4 flex items-center gap-2' }, h(Icon, { name: 'BookOpen', size: 18 }), ' References'),
+      h('h3', { className: 'font-display text-xl text-brown mb-4 flex items-center gap-2' }, h(Icon, { name: 'BookOpen', size: 18 }), T(lang, 'scienceReferences')),
       h('ol', { className: 'space-y-2' }, d.references.map((ref, i) => h('li', { key: i, className: 'text-xs text-text-light pl-4 border-l-2 border-light-pink' }, ref)))
     )
   );
@@ -1010,7 +1073,7 @@ function SciencePage() {
 // ═══════════════════════════════════════════
 //  GUT HEALTH SECTION
 // ═══════════════════════════════════════════
-function GutHealthSection() {
+function GutHealthSection({ lang }) {
   const data = BOWEL_HEALTH_DATA;
   const [selectedType, setSelectedType] = useState(4);
 
@@ -1018,7 +1081,7 @@ function GutHealthSection() {
     // Bristol Scale
     h('div', { className: 'bg-white/70 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-light-pink/40' },
       h('div', { className: 'flex items-center gap-3 mb-6' }, h('div', { className: 'w-12 h-12 rounded-2xl bg-glute/20 flex items-center justify-center' }, h(Icon, { name: 'Smile', size: 24, className: 'text-brown' })), h('h2', { className: 'font-display text-2xl text-brown' }, data.title)),
-      h('h4', { className: 'text-sm font-semibold text-brown uppercase tracking-wider mb-4' }, 'Bristol Stool Scale'),
+      h('h4', { className: 'text-sm font-semibold text-brown uppercase tracking-wider mb-4' }, T(lang, 'gutBristolScale')),
       h('div', { className: 'grid grid-cols-7 gap-2 mb-6' },
         data.bristolScale.map((item) => {
           const isSelected = selectedType === item.type;
@@ -1056,7 +1119,7 @@ function GutHealthSection() {
 
     // Fiber Guide
     h('div', { className: 'bg-white/70 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-light-pink/40' },
-      h('h3', { className: 'font-display text-xl text-brown mb-4' }, 'Fiber Guide'),
+      h('h3', { className: 'font-display text-xl text-brown mb-4' }, T(lang, 'gutFiberGuide')),
       h('div', { className: 'grid lg:grid-cols-2 gap-6' },
         h('div', null,
           h('p', { className: 'text-sm text-text-light mb-3' }, h('span', { className: 'font-medium text-brown' }, 'Target: '), data.fiberGuide.dailyTarget),
@@ -1071,11 +1134,11 @@ function GutHealthSection() {
 
     // Common Issues
     h('div', { className: 'bg-white/70 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-light-pink/40' },
-      h('h3', { className: 'font-display text-xl text-brown mb-4' }, 'Common Issues & Fixes'),
+      h('h3', { className: 'font-display text-xl text-brown mb-4' }, T(lang, 'gutCommonIssues')),
       h('div', { className: 'space-y-4' }, data.commonIssues.map((issue, i) => h('div', { key: i, className: 'p-4 rounded-2xl bg-cream/50 anim-fade-in-up', style: { animationDelay: `${i * 0.05}s` } },
         h('h4', { className: 'font-semibold text-brown mb-2' }, issue.issue),
-        h('p', { className: 'text-xs text-text-light mb-1' }, h('span', { className: 'font-medium text-text' }, 'Causes: '), issue.causes),
-        h('p', { className: 'text-xs text-text-light' }, h('span', { className: 'font-medium text-text' }, 'Fixes: '), issue.fixes)
+        h('p', { className: 'text-xs text-text-light mb-1' }, h('span', { className: 'font-medium text-text' }, T(lang, 'gutCauses') + ': '), issue.causes),
+        h('p', { className: 'text-xs text-text-light' }, h('span', { className: 'font-medium text-text' }, T(lang, 'gutFixes') + ': '), issue.fixes)
       )))
     )
   );
@@ -1086,17 +1149,18 @@ function GutHealthSection() {
 // ═══════════════════════════════════════════
 function App() {
   const [page, setPage] = useState('home');
+  const lang = 'en';
   useEffect(() => { window.scrollTo(0, 0); }, [page]);
   return h('div', { className: 'min-h-screen flex flex-col' },
-    h(Navbar, { currentPage: page, setPage }),
+    h(Navbar, { currentPage: page, setPage, lang }),
     h('div', { className: 'flex-1' },
-      page === 'home' ? h(HomePage, { setPage }) :
-      page === 'calculator' ? h(CalculatorPage) :
-      page === 'training' ? h(TrainingPage) :
-      page === 'nutrition' ? h(NutritionPage) :
-      h(SciencePage)
+      page === 'home' ? h(HomePage, { setPage, lang }) :
+      page === 'calculator' ? h(CalculatorPage, { lang }) :
+      page === 'training' ? h(TrainingPage, { lang }) :
+      page === 'nutrition' ? h(NutritionPage, { lang }) :
+      h(SciencePage, { lang })
     ),
-    h(Footer)
+    h(Footer, { lang })
   );
 }
 const root = ReactDOM.createRoot(document.getElementById('root'));
